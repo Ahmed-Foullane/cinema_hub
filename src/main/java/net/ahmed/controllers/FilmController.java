@@ -27,9 +27,9 @@ public class FilmController {
 
     @GetMapping
     public ResponseEntity<List<FilmResponseDto>> getFilms() {
-        List<Film> films = filmService.getAllFilms();
-        List<FilmResponseDto> filmResponseDtos = films.stream().map(FilmMapper::fromEntity).toList();
-        return ResponseEntity.ok(filmResponseDtos);
+            List<Film> films = filmService.getAllFilms();
+            List<FilmResponseDto> filmResponseDtos = films.stream().map(FilmMapper::fromEntity).toList();
+            return ResponseEntity.ok(filmResponseDtos);
     }
 
     @GetMapping("/id/{id}")
@@ -37,6 +37,13 @@ public class FilmController {
         Film film = filmService.getFilmById(id);
         FilmResponseDto filmResponseDto = FilmMapper.fromEntity(film);
         return ResponseEntity.ok(filmResponseDto);
+    }
+
+    @GetMapping("/search/category/{name}")
+    public ResponseEntity<List<FilmResponseDto>> searcCategoryByname(@PathVariable("name") String name){
+        List<Film> films = filmService.findFilmByCategory(name);
+        List<FilmResponseDto> filmResponseDtos = films.stream().map(FilmMapper::fromEntity).toList();
+        return ResponseEntity.ok(filmResponseDtos);
     }
 
     @PostMapping("/create")

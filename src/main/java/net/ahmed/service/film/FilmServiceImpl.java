@@ -91,4 +91,9 @@ public class FilmServiceImpl implements IFilmService{
     public List<Film> fiondFilmRelasedBeforeDate(LocalDate date) {
         return filmRepository.findByReleaseDateLessThanEqual(date);
     }
+
+    @Override
+    public List<Film> findFilmByCategory(String category) {
+        return filmRepository.findFilmByCategoryName(category);
+    }
 }

@@ -14,4 +14,5 @@ public interface IFilmRepository extends JpaRepository<Film, Long> {
     List<Film> findByRatingGreaterThanEqual(Double rating);
     List<Film> findByReleaseDateGreaterThanEqual(LocalDate releaseDate);
     List<Film> findByReleaseDateLessThanEqual(LocalDate releaseDate);
+    List<Film> findFilmByCategoryName(String name);
 }

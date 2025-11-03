@@ -19,5 +19,5 @@ public interface IFilmService {
    List<Film> getFilmGreaterThenRating(Double rating);
    List<Film> findFilmRelasedAfterDate(LocalDate date);
    List<Film> fiondFilmRelasedBeforeDate(LocalDate date);
-
+   List<Film> findFilmByCategory(String category);
 }
